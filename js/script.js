@@ -1,24 +1,6 @@
 const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
 const colors = [" ♥", " ♦", " ♠", " ♣"]
 
-// Draw a random car
-
-function drawRandomCard() {
-    let randomCard = cards[Math.floor(Math.random() * cards.length)];
-    let randomColor = colors[Math.floor(Math.random() * colors.length)];
-    let drawnCard = randomCard+randomColor;
-    return drawnCard;
-}
-
-// Initial player cards
-
-let drawnCard1 = drawRandomCard()
-let drawnCard2 = drawRandomCard()
-
-let userCards = [drawnCard1, drawnCard2]
-
-document.getElementById("firstDraw").innerHTML = userCards;
-
 // Values of the cards
 
 function value (card) {
@@ -40,25 +22,58 @@ function value (card) {
     }
 }
 
+// Draw a random car
+
+function drawRandomCard() {
+    let randomCard = cards[Math.floor(Math.random() * cards.length)];
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+    let drawnCard = randomCard+randomColor;
+    return drawnCard;
+}
+
+// Dealer cards & score
+
+function dealer() {
+    let computerCard = drawRandomCard();
+    let computerCards = [computerCard];
+    let dealerScore = value(computerCard);
+    while (dealerScore <=18) {
+        computerCard = drawRandomCard();
+        computerCards.push(computerCard);
+        let newCard = value(computerCard)
+        dealerScore += newCard
+    }
+    document.getElementById("dealerDraw").innerHTML = computerCards;
+    document.getElementById("dealerCount").innerHTML = dealerScore;
+
+    return dealerScore
+}
+
+// Initial player cards
+
+let drawnCard1 = drawRandomCard()
+let drawnCard2 = drawRandomCard()
+let userCards = [drawnCard1, drawnCard2]
+document.getElementById("firstDraw").innerHTML = userCards;
+
 // Initial player score
 
 let score = value(drawnCard1)+value(drawnCard2)
-
 document.getElementById("scoreCount").innerHTML = score;
 
-// Initial computer cards
+result (score, dealer())
 
-let computerCard1 = drawRandomCard();
-let computerCard2 = drawRandomCard();
+if (score === 21) {
+    document.getElementById("yesHide").style.visibility="visible"
+    document.getElementById("noHide").style.visibility="visible"
+    document.getElementById("result").style.visibility="visible"
+}
+else if (score > 21) {
+    document.getElementById("yesHide").style.visibility = "visible"
+    document.getElementById("noHide").style.visibility = "visible"
+    document.getElementById("result").style.visibility = "visible"
+}
 
-let computerCards = [computerCard1, computerCard2];
-document.getElementById("dealerDraw").innerHTML = computerCards;
-
-// Initial computer score
-
-let dealerScore = value(computerCard1)+value(computerCard2);
-
-document.getElementById("dealerCount").innerHTML = dealerScore;
 
 // Result of the game
 
@@ -100,7 +115,7 @@ function result(score, dealerScore) {
 // "No" button
 
 document.getElementById("no").addEventListener("click", function () {
-    result(score, dealerScore)
+    result(score, dealer())
     document.getElementById("noHide").style.visibility="visible"
     document.getElementById("result").style.visibility="visible"
 })
@@ -110,14 +125,20 @@ document.getElementById("no").addEventListener("click", function () {
 document.getElementById("yes").addEventListener("click", function() {
     let nextDrawnCard = drawRandomCard();
     userCards.push(nextDrawnCard)
-    document.getElementById("yesHide").style.visibility="visible"
     document.getElementById("nextCard").innerHTML = nextDrawnCard;
+    document.getElementById("yesHide").style.visibility="visible"
     document.getElementById("firstDraw").innerHTML = userCards;
     let nextCardValue = value(nextDrawnCard);
     score += nextCardValue
     document.getElementById("scoreCount").innerHTML = score;
-    result(score,dealerScore)
-    document.getElementById("noHide").style.visibility="visible"
+    if (score >= 21) {
+        result(score, dealer())
+        document.getElementById("noHide").style.visibility="visible"
+        document.getElementById("result").style.visibility="visible"
+    }
+    else {
+        result(score, dealer())
+    }
 })
 
 
