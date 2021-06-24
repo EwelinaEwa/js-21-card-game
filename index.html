@@ -14,14 +14,21 @@
 <div>
     <p id="firstCards" class="text">Your first two cards are:</p>
     <p id="firstDraw"></p>
-    <p id="score" class="text">Your current score is: <span id="scoreCount"></span></p>
-    <label id="wantsCard" class="text">Do you want to draw another card?</label>
+    <p id="score">Your current score is: <span id="scoreCount"></span></p>
+    <label id="wantsCard">Do you want to draw another card?</label>
     <br>
     <button id="yes" class="button">Yes</button>
     <button id="no" class="button">No</button>
-    <p id="extraCard" class="text">You get:</p>
+    <div id="yesHide">
+        <p id="extraCard">You get:</p>
+    </div>
+    <div id="noHide">
+        <p id="dealerCards">Dealer cards:</p>
+        <p id="dealerDraw"></p>
+        <p id="dealerScore">Dealer score is: <span id="dealerCount"></span></p>
+    </div>
+    <p id="result"></p>
 
-    <p id="result" class="text"></p>
 </div>
 
 <script src="js/script.js"></script>

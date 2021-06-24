@@ -15,9 +15,10 @@ body {
     color: #343434;
     font-size: 30px;
     padding: 5px 10px;
+    cursor: pointer;
 }
 
-#scoreCount {
+#scoreCount, #dealerCount {
     font-weight: bold;
     color: #E6B31E;
     background-color: #343434;

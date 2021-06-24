@@ -18,7 +18,6 @@ document.getElementById("firstDraw").innerHTML = userCards;
 function value (card) {
     if (card[0] === "1") {
         let cardValue = 10
-        console.log(cardValue)
         return cardValue
     }
     else if (card[0] === "J" || card[0] === "Q" || card[0] === "K") {
@@ -40,4 +39,12 @@ console.log(score)
 
 document.getElementById("scoreCount").innerHTML = score;
 
+document.getElementById("no").addEventListener("click", function () {
+    let computerCard1 = drawRandomCard();
+    let computerCard2 = drawRandomCard();
+    let computerCards = [computerCard1, computerCard2];
+    document.getElementById("dealerDraw").innerHTML = computerCards;
+    let dealerScore = value(computerCard1)+value(computerCard2);
+    document.getElementById("dealerCount").innerHTML = dealerScore;
+})
 
