@@ -15,5 +15,29 @@ let userCards = [drawnCard1, drawnCard2]
 
 document.getElementById("firstDraw").innerHTML = userCards;
 
-console.log(drawnCard1)
-console.log(drawnCard2)
+function value (card) {
+    if (card[0] === "1") {
+        let cardValue = 10
+        console.log(cardValue)
+        return cardValue
+    }
+    else if (card[0] === "J" || card[0] === "Q" || card[0] === "K") {
+        let cardValue = 10
+        return cardValue
+    }
+    else if (card[0] === "A") {
+        let cardValue = 11
+        return cardValue
+    }
+    else {
+        let cardValue = Number(card[0])
+        return cardValue
+    }
+}
+
+score = value(drawnCard1)+value(drawnCard2)
+console.log(score)
+
+document.getElementById("scoreCount").innerHTML = score;
+
+

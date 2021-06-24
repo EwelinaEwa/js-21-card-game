@@ -16,3 +16,10 @@ body {
     font-size: 30px;
     padding: 5px 10px;
 }
+
+#scoreCount {
+    font-weight: bold;
+    color: #E6B31E;
+    background-color: #343434;
+    padding: 2px 10px;
+}
