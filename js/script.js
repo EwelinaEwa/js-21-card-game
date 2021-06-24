@@ -51,22 +51,35 @@ document.getElementById("dealerCount").innerHTML = dealerScore;
 function result(score, dealerScore) {
     if (score === 21) {
         document.getElementById("result").innerHTML = "You have 21! You win!"
+        document.getElementById("result").style.backgroundColor = "#468966"
     }
     else if (score > 21) {
         document.getElementById("result").innerHTML = "You are over 21! It's a bust!"
+        document.getElementById("result").style.backgroundColor = "#E57B5C"
+    }
+    else if (dealerScore === 21) {
+        document.getElementById("result").innerHTML = "Dealer has 21! You lose!"
+        document.getElementById("result").style.backgroundColor = "#E57B5C"
+    }
+    else if (dealerScore > 21) {
+        document.getElementById("result").innerHTML = "Dealer is over 21! You win!"
+        document.getElementById("result").style.backgroundColor = "#468966"
     }
     else if (score === dealerScore) {
         document.getElementById("result").innerHTML = "It's a draw!"
+        document.getElementById("result").style.backgroundColor = "#FFF0A5"
     }
     else if (score > dealerScore) {
         document.getElementById("result").innerHTML = "You are closer to 21! You win!"
+        document.getElementById("result").style.backgroundColor = "#468966"
     }
     else if (score < dealerScore) {
         document.getElementById("result").innerHTML = "Dealer is closer to 21! You loose!"
+        document.getElementById("result").style.backgroundColor = "#E57B5C"
     }
     else {
-        document.getElementById("result").innerHTML = "Test"
-
+        document.getElementById("result").innerHTML = "Something is seriously wrong"
+        document.getElementById("result").style.backgroundColor = "#CA005E"
     }
 }
 

@@ -35,4 +35,11 @@ body {
 
 #result {
     visibility: hidden;
+    display: inline;
+    padding: 5px 10px;
+    border-color: #343434;
+    border-style: solid;
+    border-width: 2px;
+    line-height: 4;
+
 }
