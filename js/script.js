@@ -1,6 +1,8 @@
 const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
 const colors = [" ♥", " ♦", " ♠", " ♣"]
 
+// Draw a random car
+
 function drawRandomCard() {
     let randomCard = cards[Math.floor(Math.random() * cards.length)];
     let randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -8,12 +10,16 @@ function drawRandomCard() {
     return drawnCard;
 }
 
+// Initial player cards
+
 let drawnCard1 = drawRandomCard()
 let drawnCard2 = drawRandomCard()
 
 let userCards = [drawnCard1, drawnCard2]
 
 document.getElementById("firstDraw").innerHTML = userCards;
+
+// Values of the cards
 
 function value (card) {
     if (card[0] === "1") {
@@ -34,19 +40,27 @@ function value (card) {
     }
 }
 
+// Initial player score
+
 let score = value(drawnCard1)+value(drawnCard2)
-console.log(score)
 
 document.getElementById("scoreCount").innerHTML = score;
 
+// Initial computer cards
+
 let computerCard1 = drawRandomCard();
 let computerCard2 = drawRandomCard();
+
 let computerCards = [computerCard1, computerCard2];
 document.getElementById("dealerDraw").innerHTML = computerCards;
+
+// Initial computer score
+
 let dealerScore = value(computerCard1)+value(computerCard2);
-console.log(dealerScore)
+
 document.getElementById("dealerCount").innerHTML = dealerScore;
 
+// Result of the game
 
 function result(score, dealerScore) {
     if (score === 21) {
@@ -83,11 +97,27 @@ function result(score, dealerScore) {
     }
 }
 
+// "No" button
+
 document.getElementById("no").addEventListener("click", function () {
     result(score, dealerScore)
     document.getElementById("noHide").style.visibility="visible"
     document.getElementById("result").style.visibility="visible"
+})
 
+// "Yes" button
+
+document.getElementById("yes").addEventListener("click", function() {
+    let nextDrawnCard = drawRandomCard();
+    userCards.push(nextDrawnCard)
+    document.getElementById("yesHide").style.visibility="visible"
+    document.getElementById("nextCard").innerHTML = nextDrawnCard;
+    document.getElementById("firstDraw").innerHTML = userCards;
+    let nextCardValue = value(nextDrawnCard);
+    score += nextCardValue
+    document.getElementById("scoreCount").innerHTML = score;
+    result(score,dealerScore)
+    document.getElementById("noHide").style.visibility="visible"
 })
 
 
