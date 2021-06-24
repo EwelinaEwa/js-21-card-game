@@ -70,6 +70,11 @@ function result(score, dealerScore) {
     }
 }
 
-result(score, dealerScore)
+document.getElementById("no").addEventListener("click", function () {
+    result(score, dealerScore)
+    document.getElementById("noHide").style.visibility="visible"
+    document.getElementById("result").style.visibility="visible"
+
+})
 
 
