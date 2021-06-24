@@ -24,3 +24,15 @@ body {
     background-color: #343434;
     padding: 2px 10px;
 }
+
+#yesHide {
+    visibility: hidden;
+}
+
+#noHide {
+    visibility: hidden;
+}
+
+#result {
+    visibility: hidden;
+}
