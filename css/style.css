@@ -1,0 +1,18 @@
+body {
+    background-color: #CACACA;
+    font-family: 'Lobster', cursive;
+    color: #343434;
+    font-size: 30px;
+    padding: 30px;
+    line-height: 2;
+}
+
+.button {
+    background-color: #E6B31E;
+    border-style: solid;
+    border-color: #343434;
+    font-family: 'Lobster', cursive;
+    color: #343434;
+    font-size: 30px;
+    padding: 5px 10px;
+}
