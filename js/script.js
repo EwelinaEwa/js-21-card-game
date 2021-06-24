@@ -34,17 +34,42 @@ function value (card) {
     }
 }
 
-score = value(drawnCard1)+value(drawnCard2)
+let score = value(drawnCard1)+value(drawnCard2)
 console.log(score)
 
 document.getElementById("scoreCount").innerHTML = score;
 
-document.getElementById("no").addEventListener("click", function () {
-    let computerCard1 = drawRandomCard();
-    let computerCard2 = drawRandomCard();
-    let computerCards = [computerCard1, computerCard2];
-    document.getElementById("dealerDraw").innerHTML = computerCards;
-    let dealerScore = value(computerCard1)+value(computerCard2);
-    document.getElementById("dealerCount").innerHTML = dealerScore;
-})
+let computerCard1 = drawRandomCard();
+let computerCard2 = drawRandomCard();
+let computerCards = [computerCard1, computerCard2];
+document.getElementById("dealerDraw").innerHTML = computerCards;
+let dealerScore = value(computerCard1)+value(computerCard2);
+console.log(dealerScore)
+document.getElementById("dealerCount").innerHTML = dealerScore;
+
+
+function result(score, dealerScore) {
+    if (score === 21) {
+        document.getElementById("result").innerHTML = "You have 21! You win!"
+    }
+    else if (score > 21) {
+        document.getElementById("result").innerHTML = "You are over 21! It's a bust!"
+    }
+    else if (score === dealerScore) {
+        document.getElementById("result").innerHTML = "It's a draw!"
+    }
+    else if (score > dealerScore) {
+        document.getElementById("result").innerHTML = "You are closer to 21! You win!"
+    }
+    else if (score < dealerScore) {
+        document.getElementById("result").innerHTML = "Dealer is closer to 21! You loose!"
+    }
+    else {
+        document.getElementById("result").innerHTML = "Test"
+
+    }
+}
+
+result(score, dealerScore)
+
 
