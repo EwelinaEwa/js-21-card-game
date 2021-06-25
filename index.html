@@ -11,29 +11,38 @@
 </head>
 <body>
 
-<div>
-    <p id="firstCards" class="text">Your first two cards are:</p>
-    <p id="firstDraw"></p>
-    <p id="score">Your current score is: <span id="scoreCount"></span></p>
-    <label id="wantsCard">Do you want to draw another card?</label>
-    <br>
-    <button id="yes" class="button">Yes</button>
-    <button id="no" class="button">No</button>
+<div class="container">
+    <div class="playerSection">
+        <p id="firstCards" class="text">Player cards:</p>
+        <p id="firstDraw"></p>
+        <p id="score">Your current score is: <span id="scoreCount"></span></p>
+        <label id="wantsCard">Do you want to draw another card?</label>
+        <br>
+        <button id="yes" class="button">Yes</button>
+        <button id="no" class="button">No</button>
 
-    <div id="yesHide">
-        <p id="extraCard">You get:</p>
-        <p id="nextCard"></p>
+        <div id="yesHide">
+            <p id="extraCard">You get:</p>
+            <p id="nextCard"></p>
+        </div>
     </div>
     <hr>
-    <div id="noHide">
-        <p id="dealerCards">Dealer cards:</p>
-        <p id="dealerDraw"></p>
-        <p id="dealerScore">Dealer score is: <span id="dealerCount"></span></p>
+    <div class="dealerSection">
+        <div id="noHide">
+            <p id="dealerCards">Dealer cards:</p>
+            <p id="dealerDraw"></p>
+            <p id="dealerScore">Dealer score is: <span id="dealerCount"></span></p>
+        </div>
     </div>
-    <hr>
-    <p id="result"></p>
-
 </div>
+<hr>
+    <div class="resultSection">
+        <p id="result"></p>
+        <br>
+        <button id="playAgain" class="button">Play again!</button>
+    </div>
+
+
 
 <script src="js/script.js"></script>
 </body>

@@ -7,6 +7,24 @@ body {
     line-height: 2;
 }
 
+.container {
+display: flex;
+}
+
+.playerSection {
+    flex-basis: 50%;
+    padding: 20px;
+}
+
+.dealerSection {
+    flex-basis: 50%;
+    padding: 20px;
+}
+
+.resultSection {
+    text-align: center;
+}
+
 .button {
     background-color: #E6B31E;
     border-style: solid;
