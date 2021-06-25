@@ -4,11 +4,7 @@ const colors = [" ♥", " ♦", " ♠", " ♣"]
 // Values of the cards
 
 function value (card) {
-    if (card[0] === "1") {
-        let cardValue = 10
-        return cardValue
-    }
-    else if (card[0] === "J" || card[0] === "Q" || card[0] === "K") {
+    if (card[0] === "1" || card[0] === "J" || card[0] === "Q" || card[0] === "K") {
         let cardValue = 10
         return cardValue
     }
@@ -37,7 +33,7 @@ function dealer() {
     let computerCard = drawRandomCard();
     let computerCards = [computerCard];
     let dealerScore = value(computerCard);
-    while (dealerScore <=18) {
+    while (dealerScore <=15) {
         computerCard = drawRandomCard();
         computerCards.push(computerCard);
         let newCard = value(computerCard)
@@ -118,6 +114,8 @@ document.getElementById("no").addEventListener("click", function () {
     result(score, dealer())
     document.getElementById("noHide").style.visibility="visible"
     document.getElementById("result").style.visibility="visible"
+    document.getElementById("no").disabled = true;
+    document.getElementById("yes").disabled = true;
 })
 
 // "Yes" button
@@ -135,10 +133,13 @@ document.getElementById("yes").addEventListener("click", function() {
         result(score, dealer())
         document.getElementById("noHide").style.visibility="visible"
         document.getElementById("result").style.visibility="visible"
+        document.getElementById("yes").disabled = true;
+        document.getElementById("no").disabled = true;
     }
     else {
         result(score, dealer())
     }
+
 })
 
 
