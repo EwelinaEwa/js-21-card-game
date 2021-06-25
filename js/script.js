@@ -1,5 +1,8 @@
 const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
-const colors = [" ♥", " ♦", " ♠", " ♣"]
+const colors = ["♥", "♦", "♠", "♣"]
+
+// let card = cards/cards.find(({name}) => "2C" );
+// console.log(card)
 
 // Values of the cards
 
@@ -114,6 +117,7 @@ document.getElementById("no").addEventListener("click", function () {
     result(score, dealer())
     document.getElementById("noHide").style.visibility="visible"
     document.getElementById("result").style.visibility="visible"
+    document.getElementById("playAgain").style.visibility="visible"
     document.getElementById("no").disabled = true;
     document.getElementById("yes").disabled = true;
 })
@@ -133,13 +137,20 @@ document.getElementById("yes").addEventListener("click", function() {
         result(score, dealer())
         document.getElementById("noHide").style.visibility="visible"
         document.getElementById("result").style.visibility="visible"
+        document.getElementById("playAgain").style.visibility="visible"
         document.getElementById("yes").disabled = true;
         document.getElementById("no").disabled = true;
     }
     else {
         result(score, dealer())
     }
-
 })
+
+// "Play again" button
+
+document.getElementById("playAgain").addEventListener("click", function() {
+    window.location.reload()
+})
+
 
 

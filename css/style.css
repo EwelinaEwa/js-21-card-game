@@ -59,5 +59,8 @@ display: flex;
     border-style: solid;
     border-width: 2px;
     line-height: 4;
+}
 
+#playAgain {
+    visibility: hidden;
 }
