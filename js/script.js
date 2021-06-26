@@ -66,11 +66,15 @@ if (score === 21) {
     document.getElementById("yesHide").style.visibility="visible"
     document.getElementById("noHide").style.visibility="visible"
     document.getElementById("result").style.visibility="visible"
+    document.getElementById("playAgain").style.visibility="visible"
+
 }
 else if (score > 21) {
     document.getElementById("yesHide").style.visibility = "visible"
     document.getElementById("noHide").style.visibility = "visible"
     document.getElementById("result").style.visibility = "visible"
+    document.getElementById("playAgain").style.visibility="visible"
+
 }
 
 
